@@ -2,7 +2,7 @@
   "name": "trident",
   "displayName": "Trident",
   "description": "Quickly jump to your most important files!",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/A-Mackey/Skewer"
