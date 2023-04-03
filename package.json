@@ -14,8 +14,20 @@
   "contributes": {
     "commands": [
       {
-        "command": "common-files.helloWorld",
-        "title": "Hello World"
+        "command": "common-files.pinPage",
+        "title": "Pin page"
+      },
+      {
+        "command": "common-files.unpinPage",
+        "title": "Unpin page"
+      },
+      {
+        "command": "common-files.showPinnedPages",
+        "title": "Show Pinned Pages"
+      },
+      {
+        "command": "common-files.pinnedFilesProvider",
+        "title": "Pinned files"
       }
     ]
   },
