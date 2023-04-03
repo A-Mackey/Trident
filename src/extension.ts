@@ -39,48 +39,40 @@ export function activate(context: vscode.ExtensionContext) {
   };
 
   // Command to pin the current page
-  const pinPage = vscode.commands.registerCommand(
-    "common-files.pinPage",
-    () => {
-      const filePath = vscode.window.activeTextEditor?.document.fileName;
-      const fileName = filePath?.split("\\").pop();
+  const pinPage = vscode.commands.registerCommand("trident.pinPage", () => {
+    const filePath = vscode.window.activeTextEditor?.document.fileName;
+    const fileName = filePath?.split("\\").pop();
 
-      if (filePath && fileName) {
-        if (pinnedFiles.find((file) => file.fileName === fileName)) {
-          return;
-        }
-
-        pinnedFiles.push({ fileName, filePath });
-        vscode.window.showInformationMessage(`Pinned ${fileName}!`);
+    if (filePath && fileName) {
+      if (pinnedFiles.find((file) => file.fileName === fileName)) {
+        return;
       }
-      updatePinnedPagesProvider();
+
+      pinnedFiles.push({ fileName, filePath });
+      vscode.window.showInformationMessage(`Pinned ${fileName}!`);
     }
-  );
+    updatePinnedPagesProvider();
+  });
 
   // Command to unpin the current page
-  const unpinPage = vscode.commands.registerCommand(
-    "common-files.unpinPage",
-    () => {
-      const filePath = vscode.window.activeTextEditor?.document.fileName;
-      const fileName = filePath?.split("\\").pop();
+  const unpinPage = vscode.commands.registerCommand("trident.unpinPage", () => {
+    const filePath = vscode.window.activeTextEditor?.document.fileName;
+    const fileName = filePath?.split("\\").pop();
 
-      if (filePath && fileName) {
-        const index = pinnedFiles.findIndex(
-          (file) => file.fileName === fileName
-        );
+    if (filePath && fileName) {
+      const index = pinnedFiles.findIndex((file) => file.fileName === fileName);
 
-        if (index > -1) {
-          pinnedFiles.splice(index, 1);
-          vscode.window.showInformationMessage(`Unpinned ${fileName}!`);
-        }
+      if (index > -1) {
+        pinnedFiles.splice(index, 1);
+        vscode.window.showInformationMessage(`Unpinned ${fileName}!`);
       }
-      updatePinnedPagesProvider();
     }
-  );
+    updatePinnedPagesProvider();
+  });
 
   // Command to show the list of pinned pages as an alert (testing)
   const showPinnedPages = vscode.commands.registerCommand(
-    "common-files.showPinnedPages",
+    "trident.showPinnedPages",
     () => {
       vscode.window.showInformationMessage(
         "Pinned Pages: " + pinnedFiles.map((file) => file.fileName).join(", ")
@@ -90,7 +82,7 @@ export function activate(context: vscode.ExtensionContext) {
 
   // Command to show the list of pinned pages as a quick pick
   const pinnedFilesProviderCommand = vscode.commands.registerCommand(
-    "common-files.pinnedPagesProvider",
+    "trident.pinnedPagesProvider",
     () => {
       pinnedFilesProvider.show();
     }

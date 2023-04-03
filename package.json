@@ -2,7 +2,7 @@
   "name": "trident",
   "displayName": "Trident",
   "description": "Quickly jump to your most important files!",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/A-Mackey/Skewer"
@@ -14,6 +14,7 @@
     "vscode": "^1.77.0"
   },
   "categories": [
+    "Extension Packs",
     "Other"
   ],
   "activationEvents": [],
@@ -21,19 +22,30 @@
   "contributes": {
     "commands": [
       {
-        "command": "common-files.pinPage",
-        "title": "Pin page",
-        "key": "alt+q"
+        "command": "trident.pinPage",
+        "title": "Pin page"
       },
       {
-        "command": "common-files.unpinPage",
-        "title": "Unpin page",
-        "key": "alt+z"
+        "command": "trident.unpinPage",
+        "title": "Unpin page"
       },
       {
-        "command": "common-files.pinnedPagesProvider",
-        "title": "Pinned pages",
-        "key": "alt+a"
+        "command": "trident.pinnedPagesProvider",
+        "title": "Pinned pages"
+      }
+    ],
+    "keybindings": [
+      {
+        "key": "alt+q",
+        "command": "trident.pinPage"
+      },
+      {
+        "key": "alt+a",
+        "command": "trident.pinnedPagesProvider"
+      },
+      {
+        "key": "alt+z",
+        "command": "trident.unpinPage"
       }
     ]
   },
