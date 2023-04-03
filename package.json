@@ -1,5 +1,5 @@
 {
-  "name": "common-files",
+  "name": "trident",
   "displayName": "Trident",
   "description": "Quickly jump to your most important files!",
   "version": "0.0.1",
@@ -7,7 +7,7 @@
     "type": "git",
     "url": "https://github.com/A-Mackey/Skewer"
   },
-  "publisher": "A-Mackey",
+  "publisher": "AMackey",
   "license": "MIT",
   "icon": "Trident.png",
   "engines": {
