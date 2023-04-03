@@ -6,11 +6,13 @@ type FilePin = {
 };
 
 const pinnedFiles: FilePin[] = [];
+
 export function activate(context: vscode.ExtensionContext) {
   // Provider
   const pinnedFilesProvider = vscode.window.createQuickPick();
   pinnedFilesProvider.placeholder = "Select a file to open";
 
+  // When the user selects a file, open it
   pinnedFilesProvider.onDidChangeSelection((selection) => {
     const selectedFile = selection[0];
     if (selectedFile) {
@@ -28,6 +30,7 @@ export function activate(context: vscode.ExtensionContext) {
     }
   });
 
+  // Update the list of pinned files
   const updatePinnedPagesProvider = () => {
     pinnedFilesProvider.items = pinnedFiles.map((file) => ({
       label: file.fileName,
@@ -35,6 +38,7 @@ export function activate(context: vscode.ExtensionContext) {
     }));
   };
 
+  // Command to pin the current page
   const pinPage = vscode.commands.registerCommand(
     "common-files.pinPage",
     () => {
@@ -53,6 +57,7 @@ export function activate(context: vscode.ExtensionContext) {
     }
   );
 
+  // Command to unpin the current page
   const unpinPage = vscode.commands.registerCommand(
     "common-files.unpinPage",
     () => {
@@ -73,6 +78,7 @@ export function activate(context: vscode.ExtensionContext) {
     }
   );
 
+  // Command to show the list of pinned pages as an alert (testing)
   const showPinnedPages = vscode.commands.registerCommand(
     "common-files.showPinnedPages",
     () => {
@@ -82,8 +88,9 @@ export function activate(context: vscode.ExtensionContext) {
     }
   );
 
+  // Command to show the list of pinned pages as a quick pick
   const pinnedFilesProviderCommand = vscode.commands.registerCommand(
-    "common-files.pinnedFilesProvider",
+    "common-files.pinnedPagesProvider",
     () => {
       pinnedFilesProvider.show();
     }
@@ -91,7 +98,7 @@ export function activate(context: vscode.ExtensionContext) {
 
   context.subscriptions.push(pinPage);
   context.subscriptions.push(unpinPage);
-  context.subscriptions.push(showPinnedPages);
+  // context.subscriptions.push(showPinnedPages);
   context.subscriptions.push(pinnedFilesProviderCommand);
 }
 

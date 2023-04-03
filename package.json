@@ -1,6 +1,6 @@
 {
   "name": "common-files",
-  "displayName": "common-files",
+  "displayName": "Skewer",
   "description": "Quickly jump to your most important files!",
   "version": "0.0.1",
   "engines": {
@@ -22,12 +22,8 @@
         "title": "Unpin page"
       },
       {
-        "command": "common-files.showPinnedPages",
-        "title": "Show Pinned Pages"
-      },
-      {
-        "command": "common-files.pinnedFilesProvider",
-        "title": "Pinned files"
+        "command": "common-files.pinnedPagesProvider",
+        "title": "Pinned pages"
       }
     ]
   },
