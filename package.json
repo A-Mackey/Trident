@@ -22,15 +22,18 @@
     "commands": [
       {
         "command": "common-files.pinPage",
-        "title": "Pin page"
+        "title": "Pin page",
+        "key": "alt+q"
       },
       {
         "command": "common-files.unpinPage",
-        "title": "Unpin page"
+        "title": "Unpin page",
+        "key": "alt+z"
       },
       {
         "command": "common-files.pinnedPagesProvider",
-        "title": "Pinned pages"
+        "title": "Pinned pages",
+        "key": "alt+a"
       }
     ]
   },
