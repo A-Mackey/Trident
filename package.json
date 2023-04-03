@@ -9,7 +9,7 @@
   },
   "publisher": "A-Mackey",
   "license": "MIT",
-  "icon": "icon.png",
+  "icon": "Trident.png",
   "engines": {
     "vscode": "^1.77.0"
   },
